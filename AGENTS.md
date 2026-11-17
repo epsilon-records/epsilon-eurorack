@@ -4,7 +4,7 @@ This file is the single source of truth for every coding agent working in this r
 
 ## Project rules
 
-- The Epsilon Audio Eurorack site, `eurorack.epsilonrecords.com`: Epsilon Audio's hardware line. The modules keep their Seattle Synths (SS) names for now, starting with SS-VCO-1. Decisions live in the private `epsilon-records/knowledge` repo, under `epsilon-audio/decisions/` (0007 to 0010) and `shared/decisions/`. Read them before proposing changes; record new decisions there, not here.
+- The Epsilon Audio Eurorack site, `eurorack.epsilonrecords.com`: Epsilon Audio's hardware line. Modules carry Epsilon names, starting with Epsilon VCO-1; the modules' former names (listed in epsilon-audio 0011) appear nowhere public. Decisions live in the private `epsilon-records/knowledge` repo, under `epsilon-audio/decisions/` (0007 to 0011) and `shared/decisions/`. Read them before proposing changes; record new decisions there, not here.
 - Design: follow the plugins site (`epsilon-records/epsilon-plugins`, `site/`). Use the shared canon, `knowledge/shared/design/tokens.css` with `data-product="eurorack"` and `components.md`: dark only, IBM Plex Sans and Mono only, square corners, thin rules, azurite accent `#4fb3e8`, at most one signature motion. No new tokens or fonts; anything missing goes into the shared canon first.
 - Copy: name no other vendor's products. Format and standard names (Eurorack, HP, 1V/oct) only as compatibility facts. Metric units, 24-hour time and European dates.
 - A module appears publicly only after the Oracle confirms its design faults are fixed and a board has been built and measured. Until then, pages for it stay unlinked drafts.
