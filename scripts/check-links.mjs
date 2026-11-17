@@ -31,7 +31,10 @@ for (const file of all) {
       await check(node.getAttribute('href') ?? node.getAttribute('src') ?? node.getAttribute('content'), file);
     }
     if (!file.endsWith('_template.html')) {
-      for (const node of document.querySelectorAll('a[href]')) assert(!node.getAttribute('href').includes('/modules/'), 'Draft template must stay unlinked');
+      for (const node of document.querySelectorAll('a[href]')) {
+        const destination = new URL(node.getAttribute('href'), new URL(relative(root, file), origin + '/'));
+        assert(destination.origin !== origin || !decodeURIComponent(destination.pathname).startsWith('/modules/'), 'Draft template must stay unlinked');
+      }
     }
   } else if (file.endsWith('.css')) {
     for (const [, url] of source.matchAll(/url\(["']?([^"')]+)["']?\)/g)) await check(url, file);
