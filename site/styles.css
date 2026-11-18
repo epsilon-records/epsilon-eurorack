@@ -1,0 +1,81 @@
+/* Layout and canonical component implementations. tokens.css is a verbatim canon mirror.
+   This static site has no loading, disabled, error, or form-control states.
+   No signature motion: the signal drawing is a still illustration. */
+* { box-sizing: border-box; }
+html { scroll-padding-top: calc(var(--space-8) + var(--space-5)); }
+body { margin: 0; background: var(--bg); color: var(--text); font: var(--step-0)/var(--leading) var(--font-body); -webkit-font-smoothing: antialiased; }
+img, svg { max-width: 100%; }
+a { color: var(--text); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+a:focus-visible { outline: var(--focus-width) solid var(--accent); outline-offset: var(--focus-offset); }
+a:active { transform: translateY(1px); }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { color: var(--text-strong); line-height: var(--leading-tight); text-wrap: balance; }
+h1 { font-size: var(--step-6); font-weight: 500; letter-spacing: -0.035em; }
+h2 { font-size: var(--step-3); font-weight: 500; }
+h3 { font-size: var(--step-1); font-weight: 500; }
+p { max-width: var(--measure); }
+.wrap { max-width: 1200px; margin-inline: auto; padding-inline: max(var(--space-6), env(safe-area-inset-left), env(safe-area-inset-right)); }
+.skip { position: absolute; inset: var(--space-3) auto auto var(--space-4); z-index: 10; transform: translateY(-200%); background: var(--accent); color: var(--on-accent); padding: var(--space-3) var(--space-4); font-weight: 600; }
+.skip:focus { transform: none; color: var(--on-accent); }
+.site-header { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0 var(--space-5); padding-block: var(--space-3); }
+.brand { display: inline-flex; align-items: center; gap: var(--space-3); min-height: 44px; font-weight: 600; text-decoration: none; }
+.brand svg { width: 28px; height: 28px; color: var(--accent); }
+.brand small { font: var(--step--1)/var(--leading) var(--font-mono); color: var(--muted); margin-left: var(--space-2); }
+.nav-links { display: flex; gap: var(--space-5); }
+.nav-links a, .footer-links a { display: inline-flex; gap: var(--space-1); align-items: center; min-height: 44px; text-decoration: none; color: var(--muted); }
+.nav-links a:hover, .footer-links a:hover { color: var(--text); }
+.eyebrow { font: var(--step--1)/var(--leading) var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-8); align-items: center; padding-block: var(--space-9); }
+.hero h1 { margin-block: var(--space-5); }
+.hero h1 span { color: var(--accent); }
+.lead { color: var(--soft); font-size: var(--step-1); max-width: 38ch; }
+.hero .text-link { display: inline-flex; align-items: center; gap: var(--space-3); min-height: 44px; margin-top: var(--space-5); }
+.signal { margin: 0; min-width: 0; }
+.signal svg { display: block; width: 100%; height: auto; color: var(--accent); }
+.signal .grid-line { stroke: var(--line); stroke-width: 1; }
+.signal .trace { stroke: currentColor; stroke-width: 2; fill: none; }
+.signal .quiet { stroke: var(--line-control); }
+.signal .node { fill: var(--bg); stroke: currentColor; stroke-width: 2; }
+.signal figcaption { display: flex; justify-content: space-between; gap: var(--space-4); border-top: 1px solid var(--line); padding-top: var(--space-3); }
+.status { display: flex; gap: var(--space-6); justify-content: space-between; flex-wrap: wrap; padding-block: var(--space-5); border-block: 1px solid var(--line); }
+.status .eyebrow { color: var(--accent); }
+.approach { padding-block: var(--space-8); }
+.approach > h2 { margin-bottom: var(--space-7); }
+.columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-7); }
+.columns article { border-top: 1px solid var(--line); padding-top: var(--space-5); }
+.columns h3 { margin-block: var(--space-5) var(--space-3); }
+.columns p { color: var(--soft); }
+.site-footer { border-top: 1px solid var(--line); padding-block: var(--space-5); }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3) var(--space-5); }
+.footer-links { display: flex; flex-wrap: wrap; gap: var(--space-5); font-size: var(--step--1); }
+.error-page { min-height: 70vh; }
+.error-page .lead { margin-top: var(--space-5); }
+.button { display: inline-flex; gap: var(--space-2); align-items: center; justify-content: center; min-height: 44px; min-width: 44px; padding: var(--space-3) var(--space-5); margin-top: var(--space-6); border: 1px solid var(--accent); border-radius: var(--radius); background: var(--accent); color: var(--on-accent); font-weight: 600; text-decoration: none; transition: filter var(--dur-1) var(--ease-out); }
+.button:hover { color: var(--on-accent); filter: brightness(1.06); }
+.draft { padding-block: var(--space-8); }
+.draft > * + * { margin-top: var(--space-7); }
+.draft .notice { border: 1px solid var(--line); background: var(--surface); padding: var(--space-5); }
+.draft section > * + * { margin-top: var(--space-4); }
+/* Hardware placeholders use the canon's Table and Card components; no new hardware styling. */
+.specs { width: 100%; border-collapse: collapse; }
+.specs th, .specs td { text-align: left; border-bottom: 1px solid var(--line); padding: var(--space-3); min-height: 44px; }
+.specs thead th { font: var(--step--1)/var(--leading) var(--font-mono); text-transform: uppercase; color: var(--muted); }
+.panel-slot { margin-inline: 0; border: 1px solid var(--line); background: var(--surface); padding: var(--space-5); }
+@media (max-width: 640px) {
+  html { scroll-padding-top: calc(var(--space-9) + var(--space-6)); }
+  .wrap { padding-inline: max(var(--space-5), env(safe-area-inset-left), env(safe-area-inset-right)); }
+  .nav { row-gap: var(--space-1); }
+  .nav-links { width: 100%; justify-content: space-between; }
+  .hero { grid-template-columns: minmax(0, 1fr); gap: var(--space-7); padding-block: var(--space-7); }
+  .columns { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+  .approach { padding-block: var(--space-7); }
+  .status { gap: var(--space-3); }
+  .brand small { margin-left: 0; }
+  .specs th, .specs td { overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  a:active { transform: none; }
+}

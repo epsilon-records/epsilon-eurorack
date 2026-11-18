@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://eurorack.epsilonrecords.com/sitemap.xml
