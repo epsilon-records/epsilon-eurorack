@@ -6,7 +6,7 @@
   "scripts": {
     "check:html": "html-validate 'site/**/*.html'",
     "check:links": "node scripts/check-links.mjs",
-    "test": "npm run check:html && npm run check:links && playwright test",
+    "test": "npm run check:html && npm run check:links && node --test scripts/check-links.test.mjs && playwright test",
     "serve": "node tests/server.mjs"
   },
   "devDependencies": {
